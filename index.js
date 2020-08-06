@@ -34,7 +34,7 @@ app.put('/:id', (req, res)=>{
     const item = req.body;
 
     if (!item.id || !item.name || !item.quantity || isNaN(item.quantity)) return res.sendStatus(404)
-    if (!grocery.find(row => row.id !== id)) return res.sendStatus(404)
+    if (!grocery.find(row => row.id === id)) return res.sendStatus(404)
 
     grocery = grocery.map(row=>{
         if (row.id === id)
